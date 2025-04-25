@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Divino Tarot - Simulação WhatsApp</title>
   <style>
+    /* Estilos base */
     body {
       margin: 0;
       padding: 0;
@@ -34,12 +35,14 @@
     .avatar {
       width: 36px;
       height: 36px;
+      min-width: 36px; /* Evita que o avatar encolha em telas pequenas */
     }
 
     .avatar img {
       border-radius: 50%;
       width: 100%;
       height: 100%;
+      object-fit: cover; /* Garante que a imagem cubra o espaço sem distorção */
     }
 
     .user-info {
@@ -77,6 +80,7 @@
       border-radius: 10px;
       margin: 6px 0;
       font-size: 14px;
+      word-wrap: break-word; /* Garante que palavras longas não quebrem o layout */
     }
 
     .msg.bot {
@@ -114,11 +118,266 @@
       border-radius: 50%;
       width: 40px;
       height: 40px;
+      min-width: 40px; /* Evita que o botão encolha em telas pequenas */
       font-size: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+    }
+
+    /* Estilos para elementos de áudio e imagem */
+    audio {
+      max-width: 100%;
+      margin: 5px 0;
+    }
+
+    .msg img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin: 5px 0;
+    }
+
+    /* Media Queries para Responsividade */
+
+    /* Telas muito pequenas (smartphones pequenos) */
+    @media (max-width: 320px) {
+      .header {
+        padding: 8px 5px;
+      }
+      
+      .header-right i {
+        margin-left: 10px;
+        font-size: 16px;
+      }
+      
+      .avatar {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+      }
+      
+      .user-info span.name {
+        font-size: 15px;
+      }
+      
+      .user-info span.status {
+        font-size: 11px;
+      }
+      
+      .msg {
+        max-width: 85%; /* Aumenta um pouco a largura em telas pequenas */
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+      
+      .input-area {
+        padding: 8px 5px;
+      }
+      
+      .input-area input {
+        padding: 8px;
+        font-size: 13px;
+      }
+      
+      .input-area button {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        font-size: 16px;
+      }
+    }
+
+    /* Smartphones (até 480px) */
+    @media (min-width: 321px) and (max-width: 480px) {
+      .header {
+        padding: 8px;
+      }
+      
+      .msg {
+        max-width: 80%;
+      }
+      
+      .input-area {
+        padding: 8px;
+      }
+    }
+
+    /* Tablets pequenos (até 768px) */
+    @media (min-width: 481px) and (max-width: 768px) {
+      .msg {
+        max-width: 70%;
+      }
+      
+      body {
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    /* Tablets e desktops pequenos (até 992px) */
+    @media (min-width: 769px) and (max-width: 992px) {
+      body {
+        max-width: 700px;
+        margin: 0 auto;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      .msg {
+        max-width: 65%;
+        font-size: 15px;
+      }
+      
+      .input-area input {
+        font-size: 15px;
+      }
+    }
+
+    /* Desktops (acima de 992px) */
+    @media (min-width: 993px) {
+      body {
+        max-width: 800px;
+        margin: 0 auto;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+      
+      .header {
+        padding: 12px 15px;
+      }
+      
+      .avatar {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+      }
+      
+      .user-info span.name {
+        font-size: 18px;
+      }
+      
+      .user-info span.status {
+        font-size: 14px;
+      }
+      
+      .msg {
+        max-width: 60%;
+        padding: 12px 18px;
+        font-size: 15px;
+        margin: 8px 0;
+      }
+      
+      .input-area {
+        padding: 12px 15px;
+      }
+      
+      .input-area input {
+        padding: 12px 15px;
+        font-size: 15px;
+      }
+      
+      .input-area button {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        font-size: 20px;
+      }
+    }
+
+    /* Ajustes para orientação paisagem em dispositivos móveis */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .header {
+        padding: 5px 10px;
+      }
+      
+      .avatar {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+      }
+      
+      .user-info span.name {
+        font-size: 14px;
+      }
+      
+      .user-info span.status {
+        font-size: 11px;
+      }
+      
+      .chat-box {
+        padding: 5px;
+      }
+      
+      .msg {
+        padding: 8px 12px;
+        margin: 4px 0;
+        font-size: 13px;
+      }
+      
+      .input-area {
+        padding: 5px 8px;
+      }
+      
+      .input-area button {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+      }
+    }
+
+    /* Ajustes para telas de alta resolução */
+    @media (min-width: 1200px) {
+      body {
+        max-width: 900px;
+      }
+    }
+
+    /* Ajustes para dispositivos com tela sensível ao toque */
+    @media (hover: none) and (pointer: coarse) {
+      .input-area button {
+        padding: 0; /* Remove padding para evitar problemas em alguns dispositivos touch */
+      }
+      
+      .header-right i {
+        padding: 5px; /* Aumenta a área de toque */
+      }
+    }
+
+    /* Ajustes para modo escuro do sistema */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #0d1418;
+        background-image: url('https://web.whatsapp.com/img/bg-chat-tile-dark_a4be512e7195b6b733d9110b408f075d.png');
+      }
+      
+      .header {
+        background-color: #1f2c33;
+      }
+      
+      .msg.bot {
+        background-color: #202c33;
+        color: #e9edef;
+      }
+      
+      .msg.user {
+        background-color: #005c4b;
+        color: #e9edef;
+      }
+      
+      .input-area {
+        background-color: #1f2c33;
+      }
+      
+      .input-area input {
+        background-color: #2a3942;
+        color: #e9edef;
+        border: none;
+      }
+      
+      .input-area input::placeholder {
+        color: #8696a0;
+      }
     }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
