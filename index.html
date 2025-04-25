@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Divino Tarot - Simulação WhatsApp</title>
   <style>
     /* Estilos base */
@@ -123,7 +123,9 @@
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 20px;
-      font-size: 14px;
+      font-size: 16px; /* Aumentado para 16px para evitar zoom em dispositivos móveis */
+      -webkit-appearance: none; /* Evita estilo padrão em iOS */
+      appearance: none;
     }
 
     .input-area button {
@@ -193,7 +195,7 @@
       
       .input-area input {
         padding: 8px;
-        font-size: 13px;
+        font-size: 16px; /* Mantém 16px para evitar zoom */
       }
       
       .input-area button {
@@ -261,7 +263,7 @@
       }
       
       .input-area input {
-        font-size: 15px;
+        font-size: 16px; /* Mantém 16px para consistência */
       }
       
       .input-area {
@@ -315,7 +317,7 @@
       
       .input-area input {
         padding: 12px 15px;
-        font-size: 15px;
+        font-size: 16px; /* Mantém 16px para consistência */
       }
       
       .input-area button {
