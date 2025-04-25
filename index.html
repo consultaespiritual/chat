@@ -9,21 +9,25 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #ece5dd;
-      background-image: url('https://web.whatsapp.com/img/bg-chat-tile-light_a4b59c9f01580675c6607ec353b1ed9d.png');
+      background-color: #efeae2;
+      background-image: url('https://i.imgur.com/2qGT5WZ.png');
       font-family: 'Open Sans', sans-serif;
       height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow: hidden; /* Impede rolagem do body */
     }
 
     .header {
-      background-color: #005e54;
+      background-color: #008069;
       color: #fff;
       padding: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     .header-left {
@@ -72,6 +76,9 @@
       overflow-y: auto;
       display: flex;
       flex-direction: column;
+      background-color: #efeae2;
+      background-image: url('https://i.imgur.com/2qGT5WZ.png');
+      padding-bottom: 70px; /* Altura da input-area + padding */
     }
 
     .msg {
@@ -101,6 +108,14 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      border-top: 1px solid #ddd;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .input-area input {
@@ -112,7 +127,7 @@
     }
 
     .input-area button {
-      background-color: #128c7e;
+      background-color: #008069;
       border: none;
       color: white;
       border-radius: 50%;
@@ -187,6 +202,10 @@
         min-width: 36px;
         font-size: 16px;
       }
+      
+      .chat-box {
+        padding-bottom: 60px; /* Ajuste para telas menores */
+      }
     }
 
     /* Smartphones (até 480px) */
@@ -202,6 +221,10 @@
       .input-area {
         padding: 8px;
       }
+      
+      .chat-box {
+        padding-bottom: 65px;
+      }
     }
 
     /* Tablets pequenos (até 768px) */
@@ -214,6 +237,13 @@
         max-width: 600px;
         margin: 0 auto;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .input-area {
+        max-width: 600px;
+        margin: 0 auto;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
 
@@ -232,6 +262,13 @@
       
       .input-area input {
         font-size: 15px;
+      }
+      
+      .input-area {
+        max-width: 700px;
+        margin: 0 auto;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
 
@@ -270,6 +307,10 @@
       
       .input-area {
         padding: 12px 15px;
+        max-width: 800px;
+        margin: 0 auto;
+        left: 50%;
+        transform: translateX(-50%);
       }
       
       .input-area input {
@@ -282,6 +323,10 @@
         height: 44px;
         min-width: 44px;
         font-size: 20px;
+      }
+      
+      .chat-box {
+        padding-bottom: 80px;
       }
     }
 
@@ -307,6 +352,7 @@
       
       .chat-box {
         padding: 5px;
+        padding-bottom: 55px;
       }
       
       .msg {
@@ -331,6 +377,10 @@
       body {
         max-width: 900px;
       }
+      
+      .input-area {
+        max-width: 900px;
+      }
     }
 
     /* Ajustes para dispositivos com tela sensível ao toque */
@@ -341,42 +391,6 @@
       
       .header-right i {
         padding: 5px; /* Aumenta a área de toque */
-      }
-    }
-
-    /* Ajustes para modo escuro do sistema */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #0d1418;
-        background-image: url('https://web.whatsapp.com/img/bg-chat-tile-dark_a4be512e7195b6b733d9110b408f075d.png');
-      }
-      
-      .header {
-        background-color: #1f2c33;
-      }
-      
-      .msg.bot {
-        background-color: #202c33;
-        color: #e9edef;
-      }
-      
-      .msg.user {
-        background-color: #005c4b;
-        color: #e9edef;
-      }
-      
-      .input-area {
-        background-color: #1f2c33;
-      }
-      
-      .input-area input {
-        background-color: #2a3942;
-        color: #e9edef;
-        border: none;
-      }
-      
-      .input-area input::placeholder {
-        color: #8696a0;
       }
     }
   </style>
